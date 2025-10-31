@@ -1,2 +1,39 @@
-<!doctype html> ...
-<p>This is my first Git commit practice.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Timer Example</title>
+</head>
+<body>
+  <h2>Timer: <span id="timer">0</span> seconds</h2>
+
+  <button onclick="startTimer()">Start</button>
+  <button onclick="stopTimer()">Stop</button>
+  <button onclick="resetTimer()">Reset</button>
+
+  <script>
+    let count = 0;
+    let timer = null;
+
+    function startTimer() {
+      if (!timer) {
+        timer = setInterval(() => {
+          count++;
+          document.getElementById("timer").textContent = count;
+        }, 10);
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function resetTimer() {
+      stopTimer();
+      count = 0;
+      document.getElementById("timer").textContent = count;
+    }
+  </script>
+</body>
+</html>
